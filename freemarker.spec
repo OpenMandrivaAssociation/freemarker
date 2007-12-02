@@ -8,9 +8,11 @@ Url:            http://freemarker.org/
 BuildArch:      noarch
 Source0:        %{name}-%{version}.tar.gz
 Patch0:         build.patch
-BuildRequires:  jpackage-utils ant 
+BuildRequires:  jpackage-utils 
+BuildRequires:  ant 
 BuildRequires:  java-devel >= 1.6
-Requires:       java >= 1.5
+BuildRequires:  java >= 1.6
+Requires:       java >= 1.6
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
