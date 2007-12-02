@@ -8,8 +8,8 @@ Url:            http://freemarker.org/
 BuildArch:      noarch
 Source0:        %{name}-%{version}.tar.gz
 Patch0:         build.patch
-BuildRequires:  jpackage-utils 
-BuildRequires:  ant 
+BuildRequires:  jpackage-utils
+BuildRequires:  ant
 BuildRequires:  java-devel >= 1.6
 BuildRequires:  java >= 1.6
 Requires:       java >= 1.6
@@ -50,7 +50,7 @@ programmers can embed into their products.
 %{__rm} src/freemarker/cache/WebappTemplateLoader.java
 
 %build
-%{ant} -f build.xml jar javadoc
+ant -f build.xml jar javadoc
 
 %install
 rm -rf %{buildroot}
