@@ -13,6 +13,7 @@ BuildRequires:  ant
 BuildRequires:  java-devel >= 1.6
 BuildRequires:  java >= 1.6
 Requires:       java >= 1.6
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 FreeMarker is a "template engine"; a generic tool to generate text output 
