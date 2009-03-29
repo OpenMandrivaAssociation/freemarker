@@ -1,6 +1,6 @@
 Name:           freemarker
 Version:        2.3.10
-Release:        %mkrel 4
+Release:        %mkrel 5
 Summary:        FreeMarker template engine - a generic tool to generate text output
 License:        BSD
 Group:          Development/Java
@@ -23,7 +23,7 @@ It's not an application for end-users in itself, but something that
 programmers can embed into their products.
 
 %package        javadoc
-Summary:        Javadoc for %{oname}
+Summary:        Javadoc for %{name}
 Group:          Development/Java
 Requires:        %{name} = %{version}-%{release}
 %description    javadoc
