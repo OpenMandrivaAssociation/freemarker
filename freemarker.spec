@@ -1,6 +1,6 @@
 Name:           freemarker
 Version:        2.3.10
-Release:        %mkrel 5
+Release:        %mkrel 6
 Summary:        FreeMarker template engine - a generic tool to generate text output
 License:        BSD
 Group:          Development/Java
