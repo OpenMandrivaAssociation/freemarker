@@ -1,0 +1,51 @@
+--- build.xml.sav	2007-12-02 09:05:12.000000000 +0100
++++ build.xml	2007-12-02 09:05:25.000000000 +0100
+@@ -315,38 +315,6 @@
+ 
+     <target name="javacc"
+         description="Build the JavaCC parser from its grammar file">
+-        <!-- mkdir dir="${build.javacc.dir}/freemarker/core"/ -->
+-        <copy todir="${build.javacc.dir}/freemarker/core" file="${src.dir}/freemarker/core/ParseException.java" />
+-        <javacc
+-            target="${src.dir}/freemarker/core/FMParser.jj"
+-            outputdirectory="src/freemarker/core"
+-            javacchome="${javacc.home}"
+-        />
+-       <replace
+-            file="src/freemarker/core/FMParserConstants.java"
+-            token="public interface FMParserConstants"
+-            value="interface FMParserConstants"
+-        />
+-        <replace
+-            file="src/freemarker/core/FMParserTokenManager.java"
+-            token="public class FMParserTokenManager"
+-            value="class FMParserTokenManager"
+-        />
+-  <replace
+-      file="src/freemarker/core/Token.java"
+-      token="public class Token"
+-      value="class Token"
+-  />
+-  <replace
+-      file="src/freemarker/core/SimpleCharStream.java"
+-      token="public final class SimpleCharStream"
+-      value="final class SimpleCharStream"
+-      />
+-   <replace
+-	file="src/freemarker/core/FMParser.java"
+-	token="enum"
+-	value="ENUM"
+-	/>
+     </target>
+ 
+     <target depends="init, prepare, javacc" name="compile"
+--- src/freemarker/template/DefaultObjectWrapper.java.old	2007-12-02 09:37:44.000000000 +0100
++++ src/freemarker/template/DefaultObjectWrapper.java	2007-12-02 09:38:36.000000000 +0100
+@@ -80,7 +80,6 @@
+         } catch (Exception e) {}
+         try {
+             JYTHON_OBJ_CLASS = Class.forName("org.python.core.PyObject");
+-            JYTHON_WRAPPER = freemarker.ext.jython.JythonWrapper.INSTANCE;
+         } catch (Exception e) {}
+     }
+     
