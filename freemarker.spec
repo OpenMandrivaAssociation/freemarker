@@ -1,6 +1,6 @@
 Name:           freemarker
 Version:        2.3.10
-Release:        10
+Release:        11
 Summary:        Template engine - a generic tool to generate text output
 License:        BSD
 Group:          Development/Java
