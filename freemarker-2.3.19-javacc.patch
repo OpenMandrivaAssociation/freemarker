@@ -1,0 +1,31 @@
+--- build.xml	2012-05-16 13:50:05.577618606 +0200
++++ build.xml-gil	2012-05-16 13:50:10.364618868 +0200
+@@ -488,13 +488,12 @@
+         description="Build the JavaCC parser from its grammar file">
+         <taskdef name="generate" classname="org.apache.tools.ant.taskdefs.optional.javacc.JavaCC"
+             uri="http://javacc.dev.java.net/"
+-            classpath="lib/javacc.jar"
+         />
+         
+         <javacc:generate
+             target="${src.dir}/freemarker/core/FMParser.jj"
+             outputdirectory="src/freemarker/core"
+-            javacchome="lib"
++            javacchome="/usr/share/java/" jdkversion="1.3"
+         />
+         <replace
+             file="src/freemarker/core/FMParser.java"
+@@ -511,11 +510,11 @@
+             token="public class FMParserTokenManager"
+             value="class FMParserTokenManager"
+         />
+-        <replace
++        <!--replace
+             file="src/freemarker/core/Token.java"
+             token="public class Token"
+             value="class Token implements java.io.Serializable"
+-        />
++        /-->
+         <replace
+             file="src/freemarker/core/SimpleCharStream.java"
+             token="public final class SimpleCharStream"

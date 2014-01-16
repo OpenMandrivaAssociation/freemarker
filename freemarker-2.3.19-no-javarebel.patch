@@ -1,0 +1,36 @@
+diff -Nru freemarker-2.3.19/build.xml freemarker-2.3.19-gil/build.xml
+--- freemarker-2.3.19/build.xml	2012-05-16 13:03:44.563466757 +0200
++++ freemarker-2.3.19-gil/build.xml	2012-05-16 13:01:04.725458030 +0200
+@@ -164,6 +164,7 @@
+         <exclude name="freemarker/core/RegexBuiltins.java"/>
+         <exclude name="freemarker/ext/ant/**"/>
+         <exclude name="freemarker/ext/beans/EnumModels.java"/>
++        <exclude name="freemarker/ext/beans/JavaRebelIntegration.java"/>
+         <exclude name="freemarker/ext/dom/XalanXPathSupport.java"/>
+         <exclude name="freemarker/ext/dom/SunInternalXalanXPathSupport.java"/>
+         <exclude name="freemarker/ext/dom/JaxenXPathSupport.java"/>
+diff -Nru freemarker-2.3.19/src/freemarker/ext/beans/BeansWrapper.java freemarker-2.3.19-gil/src/freemarker/ext/beans/BeansWrapper.java
+--- freemarker-2.3.19/src/freemarker/ext/beans/BeansWrapper.java	2012-03-01 01:56:25.000000000 +0100
++++ freemarker-2.3.19-gil/src/freemarker/ext/beans/BeansWrapper.java	2012-05-16 13:03:24.057465638 +0200
+@@ -232,7 +232,6 @@
+      */
+     public BeansWrapper() {
+         if(javaRebelAvailable) {
+-            JavaRebelIntegration.registerWrapper(this);
+         }
+     }
+     
+@@ -1672,13 +1671,7 @@
+ 
+     
+     private static boolean isJavaRebelAvailable() {
+-        try {
+-            JavaRebelIntegration.testAvailability();
+-            return true;
+-        }
+-        catch(NoClassDefFoundError e) {
+             return false;
+-        }
+     }
+     
+     /**

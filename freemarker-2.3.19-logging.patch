@@ -1,0 +1,22 @@
+--- src/freemarker/log/Logger.java	2012-03-01 01:56:24.000000000 +0100
++++ src/freemarker/log/Logger.java-gil	2012-06-05 00:38:36.004769500 +0200
+@@ -301,12 +301,18 @@
+             	
+                 try
+                 {
+-                    return createFactory(i);
++                    LoggerFactory f = createFactory(i);
++                    f.getLogger("just.testing");
++                    return f;
+                 }
+                 catch(ClassNotFoundException e)
+                 {
+                     ;//Intentionally ignored
+                 }
++                catch(NoClassDefFoundError e)
++                {
++                    ;//Intentionally ignored
++                }
+             }
+             System.err.println("*** WARNING: FreeMarker logging suppressed.");
+             return new NullLoggerFactory();

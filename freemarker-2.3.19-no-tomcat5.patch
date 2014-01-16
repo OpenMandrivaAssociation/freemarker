@@ -1,0 +1,140 @@
+--- build.xml	2012-05-16 12:49:40.018420644 +0200
++++ build.xml-gil	2012-05-16 12:56:22.835442638 +0200
+@@ -55,8 +55,6 @@
+     <property name="lib.struts" location="lib/struts.jar"/>
+     <property name="lib.rhino" location="lib/js.jar"/>
+     <property name="lib.servlet" location="lib/servlet.jar"/>
+-    <property name="lib.jsp12" location="lib/jsp-api-1.2.jar"/>
+-    <property name="lib.jsp20" location="lib/jsp-api-2.0.jar"/>
+     <property name="lib.jsp21" location="lib/jsp-api-2.1.jar"/>
+     <property name="lib.el" location="lib/el-api.jar"/>
+     
+@@ -99,7 +97,7 @@
+ 
+     <path id="compile.jsp2.classpath">
+     <path refid="compile.nomultiversion.classpath"/>
+-    <pathelement path="${lib.jsp20}"/>
++    <pathelement path="${lib.jsp21}"/>
+     </path>
+     
+     <path id="compile.jython20.classpath">
+@@ -260,9 +258,9 @@
+         <include name="freemarker/ext/jsp/FreeMarkerPageContext1.java"/>
+     </patternset>
+ 
+-    <patternset id="freemarker.compile.jsp2">
+-        <include name="freemarker/ext/jsp/FreeMarkerPageContext2.java"/>
+-        <include name="freemarker/ext/jsp/FreeMarkerJspFactory2.java"/>
++    <patternset id="freemarker.compile.jsp21">
++        <include name="freemarker/ext/jsp/FreeMarkerPageContext21.java"/>
++        <include name="freemarker/ext/jsp/FreeMarkerJspFactory21.java"/>
+     </patternset>
+ 
+     <!-- Pattern set for FreeMarker test case compilation -->
+@@ -571,7 +569,7 @@
+         <antcall target="compile-jdk14"/>
+         <antcall target="compile-jdk15"/>
+         <!--antcall target="compile-jsp1"/-->
+-        <antcall target="compile-jsp2"/>
++        <antcall target="compile-jsp21"/>
+         <antcall target="compile-jython20"/>
+         <antcall target="compile-jython22"/>
+         <antcall target="compile-jython25"/>
+@@ -655,7 +653,7 @@
+ 
+     <target name="compile-jython20" if="jython20.available" depends="init">
+         <javac destdir="${build.classes.dir}"
+-                bootclasspath="lib/rt122.jar" target="1.2" source="1.2"
++                bootclasspath="lib/rt122.jar" target="6" source="6"
+                 deprecation="off" debug="on" optimize="off"
+                 includeantruntime="false">
+             <src path="${src.dir}"/>
+@@ -666,7 +664,7 @@
+ 
+     <target name="compile-jython22" if="jython22.available" depends="init">
+         <javac destdir="${build.classes.dir}"
+-                bootclasspath="lib/rt122.jar" target="1.2" source="1.2"
++                bootclasspath="lib/rt122.jar" target="6" source="6"
+                 deprecation="off" debug="on" optimize="off"
+                 includeantruntime="false">
+             <src path="${src.dir}"/>
+@@ -678,7 +676,7 @@
+     <target name="compile-jython25" if="jython25.available" depends="init">
+         <!-- Needs J2SE 1.5 bootclaspath -->
+         <javac destdir="${build.classes.dir}"
+-                target="1.2" source="1.2"
++                target="6" source="6"
+                 deprecation="off" debug="on" optimize="off"
+                 includeantruntime="false">
+             <src path="${src.dir}"/>
+@@ -689,7 +687,7 @@
+     
+     <target name="compile-jsp1" depends="init">
+         <javac destdir="${build.classes.dir}"
+-                bootclasspath="lib/rt122.jar" target="1.2" source="1.2"
++                bootclasspath="lib/rt122.jar" target="6" source="6"
+                 deprecation="off" debug="on" optimize="off"
+                 includeantruntime="false">
+             <src path="${src.dir}"/>
+@@ -698,20 +696,20 @@
+         </javac>
+     </target>
+ 
+-    <target name="compile-jsp2" depends="init">
++    <target name="compile-jsp21" depends="init">
+         <javac destdir="${build.classes.dir}"
+-                bootclasspath="lib/rt122.jar" target="1.2" source="1.2"
++                bootclasspath="lib/rt122.jar" target="6" source="6"
+                 deprecation="off" debug="on" optimize="off"
+                 includeantruntime="false">
+             <src path="${src.dir}"/>
+-            <classpath refid="compile.jsp2.classpath"/>
+-            <patternset refid="freemarker.compile.jsp2"/>
++            <classpath refid="compile.jsp21.classpath"/>
++            <patternset refid="freemarker.compile.jsp21"/>
+         </javac>
+     </target>
+ 
+     <target name="compile-rhino" if="rhino.available" depends="init">
+         <javac destdir="${build.classes.dir}"
+-                bootclasspath="lib/rt122.jar" target="1.2" source="1.2"
++                bootclasspath="lib/rt122.jar" target="6" source="6"
+                 deprecation="off" debug="on" optimize="off"
+                 includeantruntime="false">
+             <src path="${src.dir}"/>
+@@ -722,7 +720,7 @@
+ 
+     <target name="compile-dom4j" if="dom4j.available" depends="init">
+         <javac destdir="${build.classes.dir}"
+-                bootclasspath="lib/rt122.jar" target="1.2" source="1.2"
++                bootclasspath="lib/rt122.jar" target="6" source="6"
+                 deprecation="off" debug="on" optimize="off"
+                 includeantruntime="false">
+             <src path="${src.dir}"/>
+@@ -733,7 +731,7 @@
+ 
+     <target name="compile-jaxen" if="jaxen.available" depends="init">
+         <javac destdir="${build.classes.dir}"
+-                bootclasspath="lib/rt122.jar" target="1.2" source="1.2"
++                bootclasspath="lib/rt122.jar" target="6" source="6"
+                 deprecation="off" debug="on" optimize="off"
+                 includeantruntime="false">
+             <src path="${src.dir}"/>
+@@ -744,7 +742,7 @@
+ 
+     <target name="compile-jdom" if="jdom.available" depends="init">
+         <javac destdir="${build.classes.dir}"
+-                bootclasspath="lib/rt122.jar" target="1.2" source="1.2"
++                bootclasspath="lib/rt122.jar" target="6" source="6"
+                 deprecation="off" debug="on" optimize="off"
+                 includeantruntime="false">
+             <src path="${src.dir}"/>
+@@ -755,7 +753,7 @@
+     
+     <target name="compile-xalan" if="xalan.available" depends="init">
+         <javac destdir="${build.classes.dir}"
+-                bootclasspath="lib/rt122.jar" target="1.2" source="1.2"
++                bootclasspath="lib/rt122.jar" target="6" source="6"
+                 deprecation="off" debug="on" optimize="off"
+                 includeantruntime="false">
+             <src path="${src.dir}"/>
