@@ -1,4 +1,9 @@
 %{?_javapackages_macros:%_javapackages_macros}
+%if 0%{?fedora}
+%else
+%undefine __cp
+%define __cp /bin/cp
+%endif
 # Prevent brp-java-repack-jars from being run.
 %global __jar_repack %{nil}
 
