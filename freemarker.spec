@@ -15,9 +15,9 @@ echo "ERROR: Sources should not contain JAR files:" && echo "$F" && exit 1
 
 Name:           freemarker
 Version:        %{fm_ver}
-Release:        7.0%{?dist}
+Release:        9.0
 Summary:        A template engine
-
+Group:		Development/Java
 
 License:        BSD
 URL:            http://freemarker.sourceforge.net/
@@ -170,11 +170,8 @@ dos2unix -k docs/docs/api/package-list
 # depmap
 %add_maven_depmap JPP-%{name}.pom %{name}.jar
 
-%files
+%files -f .mfiles
 %defattr(-,root,root,-)
-%{_mavenpomdir}/*
-%{_mavendepmapfragdir}/*
-%{_javadir}/*.jar
 %doc LICENSE.txt README.txt
 
 %files javadoc
