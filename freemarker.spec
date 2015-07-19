@@ -15,7 +15,7 @@ echo "ERROR: Sources should not contain JAR files:" && echo "$F" && exit 1
 
 Name:           freemarker
 Version:        %{fm_ver}
-Release:        9.0
+Release:        9.1
 Summary:        A template engine
 Group:		Development/Java
 
