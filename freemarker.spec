@@ -20,7 +20,7 @@ Summary:        A template engine
 Group:		Development/Java
 
 License:        BSD
-URL:            http://freemarker.sourceforge.net/
+URL:            https://freemarker.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source1:        http://freemarker.sourceforge.net/maven2/org/%{name}/%{name}/%{version}/%{name}-%{version}.pom
 
