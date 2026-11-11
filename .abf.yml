@@ -1,2 +1,4 @@
 sources:
+  freemarker-2.3.35.tar.gz: 719b5c40b0ee64d12b581243d9dfc221aeddfbab
+removed_sources:
   freemarker-2.3.19.tar.gz: 3e1a4256d831f85231c6f6e877c449997674900b
